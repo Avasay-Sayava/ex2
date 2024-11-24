@@ -5,14 +5,14 @@ Assignment: ex2
 *******************/
 
 #include <stdio.h>
-#include <stdbool.h>
+#define TRUE 1
 
 int main() {
     // pre-declare all vars to avoid redefs
     int option, num, size, reversed, cheer, smile;
     char eyes, nose, mouth;
 
-    while (true) {
+    while (TRUE) {
         // get option
         printf("Choose an option:\n"
                "\t1. Happy Face\n"
@@ -238,14 +238,14 @@ int main() {
             case 6:
                 // get the festival numbers
                 printf("Enter a smile and cheer number:\n");
-                int success = scanf(" %*1[s]%*1[m]%*1[i]%*1[l]%*1[e]%*1[:] %d , %*1[c]%*1[h]%*2[e]%*1[r]%*1[:] %d", &smile, &cheer);
+                int success = scanf(" smile: %d , cheer: %d", &smile, &cheer);
                 scanf("%*[^\n]"); // clear stdin
 
                 // if the numbers are illegal (non-positive or equal) get it again
                 while (smile == cheer || smile <= 0 || cheer <= 0 || success != 2) {
                     printf("Only 2 different positive numbers in the given "
                            "format are allowed for the festival, please try again:\n");
-                    success = scanf(" %*1[s]%*1[m]%*1[i]%*1[l]%*1[e]%*1[:] %d , %*1[c]%*1[h]%*1[e]%*1[e]%*1[r]%*1[:] %d", &smile, &cheer);
+                    success = scanf(" smile: %d , cheer: %d", &smile, &cheer);
                     scanf("%*[^\n]"); // clear stdin
                 }
 
